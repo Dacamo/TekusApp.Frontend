@@ -2,8 +2,8 @@ import React from 'react';
 
 const HomePage = () => (
   <>
-    <div>
-      <h1>RESUME PAGE</h1>
+    <div className="container main-cardsContainer">
+      <h1>RESUMEN PAGE</h1>
     </div>
   </>
 )

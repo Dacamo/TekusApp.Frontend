@@ -38,8 +38,7 @@ export const updatingClient = (client) => async () => {
 }
 
 export const creatingClient = (client) => async (dispatch) => {
-  const response = await postClient(client)
-  dispatch(createClient(response))
+  await postClient(client)
 }
 
 export const removingClient = (id) => async (dispatch) => {

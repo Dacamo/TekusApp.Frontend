@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import history from '../history';
 import Client from './Client';
-import ButtonRedirect from './ButtonRedirect';
-
 
 class Clients extends Component {
 
@@ -13,12 +11,8 @@ class Clients extends Component {
   render(){
     return(
       <>
-      <ButtonRedirect
-      text = {'Agregar Cliente'}
-      link = {'/Clients/Create'}
-      />
-
-      
+      <button className="btn btn-secondary my-2 my-sm-0" data-toggle="modal" data-target="#modalCreateClient">Agregar Cliente</button>
+      <hr/>
       <div>
         <table className="table table-hover table-sm">
           <thead className="thead-light">
@@ -50,7 +44,7 @@ class Clients extends Component {
                 </button>
                 <button
                   className='btn btn-danger action-btn btn-sm'
-                  onClick={() => history.push(`/Clients/Eliminar/${client.id}`)} >
+                  onClick={() => this.props.removingClient(client.id)} >
                   Eliminar
                 </button>
                 </>

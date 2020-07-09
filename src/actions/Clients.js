@@ -1,4 +1,4 @@
-import ACTIONS from "./types";
+import {ACTIONS} from "./types";
 import { getClients, getClientById, postClient, putClient, deleteClient } from "../api/ClientApi";
 
 export const fetchClients = (clients) => ({

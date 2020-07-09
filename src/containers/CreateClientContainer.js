@@ -1,5 +1,6 @@
 import {creatingClient} from '../actions/Clients';
 import {connect} from 'react-redux';
 import CreateClient from '../components/CreateClient';
+import {withRouter} from 'react-router';
 
-export default connect(null, {creatingClient})(CreateClient)
+export default withRouter(connect(null, {creatingClient})(CreateClient));

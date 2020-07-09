@@ -1,5 +1,7 @@
 import {ACTIONS} from "./types";
 import { getClients, getClientById, postClient, putClient, deleteClient } from "../api/ClientApi";
+import history from '../history'
+
 
 export const fetchClients = (clients) => ({
   type: ACTIONS.FETCH_CLIENTS,
@@ -39,6 +41,8 @@ export const updatingClient = (client) => async () => {
 
 export const creatingClient = (client) => async (dispatch) => {
   await postClient(client)
+  dispatch(createClient)
+  history.push(`/Clientes`)
 }
 
 export const removingClient = (id) => async (dispatch) => {

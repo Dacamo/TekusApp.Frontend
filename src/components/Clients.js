@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import history from '../history';
 import Client from './Client';
+import ButtonRedirect from './ButtonRedirect';
 
 class Clients extends Component {
 
@@ -8,10 +9,16 @@ class Clients extends Component {
     this.props.fetchingClients()
   }
 
+  componentDidUpdate(){
+    this.props.fetchingClients()
+  }
+
   render(){
     return(
       <>
-      <button className="btn btn-secondary my-2 my-sm-0" data-toggle="modal" data-target="#modalCreateClient">Agregar Cliente</button>
+      <ButtonRedirect
+          text = {'Agregar Cliente'}
+          link = {'/Clientes/Crear'}/>
       <hr/>
       <div>
         <table className="table table-hover table-sm">
@@ -39,7 +46,7 @@ class Clients extends Component {
                 </button>
                 <button
                   className='btn btn-info action-btn btn-sm'
-                  onClick={() => history.push(`/Clients/Editar/${client.id}`)} >
+                  onClick={() => history.push(`/Clientes/Actualizar/${client.id}`)} >
                   Editar
                 </button>
                 <button

@@ -6,12 +6,13 @@ import ButtonRedirect from './ButtonRedirect';
 class Services extends Component {
 
   componentDidMount() {
-    this.props.fetchingServices()
+    this.props.fetchingServicesByClientID(this.props.match.params.clientId)
   }
 
-  componentDidUpdate() {
-    this.props.fetchingServices()
+  componentDidUpdate(){
+    
   }
+
 
   render() {
 
@@ -40,7 +41,7 @@ class Services extends Component {
             <thead className="thead-light">
               <tr>
                 <th scope='col'>Nombre</th>
-                <th scope='col'>Valor Hora</th>
+                <th scope='col'>Valor Hora (USD)</th>
                 <th scope='col'>Paises Disponible</th>
                 <th scope='col'>Acciones</th>
               </tr>
@@ -51,7 +52,18 @@ class Services extends Component {
                   key={service.id}
                   name={service.name}
                   hourValue={service.hourValue}
-                  contries={service.contries}
+                  contries={
+                    <button
+                      className='btn btn-primary action-btn btn-sm'
+                      onClick={() => 
+                      {
+                        this.props.fetchingServiceById(service.id)
+                        history.push(`/Countries`)
+                        
+                      }} >
+                      Paises
+                    </button>
+                  }
                   actions={
                     <>
                       <button

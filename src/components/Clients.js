@@ -42,6 +42,7 @@ class Clients extends Component {
                 <th scope='col'>NIT</th>
                 <th scope='col'>Nombre</th>
                 <th scope='col'>Correo</th>
+                <th scope='col'>Servicios</th>
                 <th scope='col'>Acciones</th>
               </tr>
             </thead>
@@ -52,27 +53,29 @@ class Clients extends Component {
                   nit={client.nit}
                   email={client.email}
                   name={client.name}
+                  services={
+                    <button
+                      className='btn btn-primary action-btn btn-sm'
+                      onClick={() => 
+                      {
+                        history.push(`/Servicios/${client.id}`)
+                        this.props.fetchingClientById(client.id)
+                      }} >
+                      Servicios
+                    </button>
+                  }
                   actions={
-                    <>
-                      <button
-                        className='btn btn-primary action-btn btn-sm'
-                        onClick={() => 
-                        {
-                          history.push(`/Servicios/${client.id}`)
-                          this.props.fetchingClientById(client.id)
-                        }} >
-                        Servicios
-                </button>
+                    <>   
                       <button
                         className='btn btn-info action-btn btn-sm'
                         onClick={() => history.push(`/Clientes/Actualizar/${client.id}`)} >
                         Editar
-                </button>
+                      </button>
                       <button
                         className='btn btn-danger action-btn btn-sm'
                         onClick={() => { if (window.confirm('¿Está seguro que desea eleminar el cliente?')) this.props.removingClient(client.id) }} >
                         Eliminar
-                </button>
+                      </button>
                     </>
                   }
                 />

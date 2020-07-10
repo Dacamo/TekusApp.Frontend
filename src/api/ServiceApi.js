@@ -27,3 +27,8 @@ export const deleteService = async (id) => {
   await axios.delete(`${SERVICE_API_URL}/${id}`)
 }
 
+export const getServicesByClientId = async (clientId) =>{
+  const response = await axios.get(`${SERVICE_API_URL}/clientId/${clientId}`)
+  return response.data
+}
+

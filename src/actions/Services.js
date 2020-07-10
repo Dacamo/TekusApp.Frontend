@@ -1,5 +1,5 @@
 import {ACTIONS} from "./types";
-import { getServices, getServiceById, postService, putService, deleteService } from "../api/ServiceApi";
+import { getServices, getServiceById, postService, putService, deleteService, getServicesByClientId } from "../api/ServiceApi";
 import history from '../history'
 
 
@@ -23,6 +23,11 @@ export const createService = () => ({
 
 export const removeService = () => ({
   type: ACTIONS.DELETE_SERVICE
+})
+
+export const fetchServicesByClientId = (services) =>({
+  type: ACTIONS.FETCH_SERVICES_BY_CLIENT_ID,
+  payload: services
 })
 
 export const fetchingServices = () => async (dispatch) => {
@@ -50,6 +55,12 @@ export const removingService = (id) => async (dispatch) => {
   await deleteService(id)
   dispatch(removeService(id))
 }
+
+export const fetchingServicesByClientID = (clientId) => async (dispatch) => {
+  const services = await getServicesByClientId(clientId)
+  dispatch(fetchServicesByClientId(services))
+}
+
 
 
 

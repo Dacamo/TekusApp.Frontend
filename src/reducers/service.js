@@ -17,6 +17,8 @@ const service = (state = defaultState, action) =>{
       return {...state}
     case ACTIONS.FETCH_SERVICE_BY_ID:
       return {...state, serviceData: action.payload}
+    case ACTIONS.FETCH_SERVICES_BY_CLIENT_ID:
+      return {...state, servicesData: action.payload}
     default: 
       return state; 
   }

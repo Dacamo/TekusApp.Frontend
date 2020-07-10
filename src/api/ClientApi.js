@@ -8,13 +8,13 @@ export const getClients = async () => {
   return response.data
 }
 
-export const postClient = async (asset) => {
-  const response = await axios.post(CLIENTS_API_URL, asset)
+export const postClient = async (client) => {
+  const response = await axios.post(CLIENTS_API_URL, client)
   return response.data
 }
 
-export const putClient = async (asset) => {
-  const response = await axios.put(`${CLIENTS_API_URL}/${asset.id}`, asset)
+export const putClient = async (client) => {
+  const response = await axios.put(`${CLIENTS_API_URL}/${client.id}`, client)
   return response
 }
 

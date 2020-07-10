@@ -19,7 +19,7 @@ const Root = () => {
             <Route path='/Clientes' exact component={ClientsPage} />
             <Route path="/Clientes/Crear" exact component={CreateClientPage} />
             <Route path="/Clientes/Actualizar/:Id" exact component={UpdateClientPage} />
-            <Route path="/Servicios" exact component={ServicesPage} />
+            <Route path="/Servicios/:Id" exact component={ServicesPage} />
             <Route path="/Resumen" exact component={ResumePage} />
           </Switch>
       </div>

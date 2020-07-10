@@ -37,6 +37,7 @@ export const fetchingClientById = (id) => async (dispatch) => {
 
 export const updatingClient = (client) => async () => {
   await putClient(client)
+  history.push(`/Clientes`)
 }
 
 export const creatingClient = (client) => async (dispatch) => {

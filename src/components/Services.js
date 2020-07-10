@@ -58,7 +58,7 @@ class Services extends Component {
                       onClick={() => 
                       {
                         this.props.fetchingServiceById(service.id)
-                        history.push(`/Countries`)
+                        history.push(`/Countries/${service.id}`)
                         
                       }} >
                       Paises

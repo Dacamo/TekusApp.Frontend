@@ -24,7 +24,7 @@ const Root = () => {
             <Route path="/Servicios/Crear" exact component={CreateServicePage} />
             <Route path="/Servicios/:clientId" exact component={ServicesPage} />
             <Route path="/Resumen" exact component={ResumePage} />
-            <Route path="/Countries" exact component={CreateServiceCountryPage} />
+            <Route path="/Countries/:serviceId" exact component={CreateServiceCountryPage} />
           </Switch>
       </div>
     </Router>

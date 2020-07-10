@@ -6,7 +6,11 @@ import ServiceCountry from './ServiceCountry'
 class ServicesCountries extends Component {
   
   componentDidMount(){
-    this.props.fetchingServicesCountries(19)
+    this.props.fetchingServicesCountries(this.props.match.params.serviceId)
+  }
+
+  componentDidUpdate(){
+    this.props.fetchingServicesCountries(this.props.match.params.serviceId)
   }
   
   render() {

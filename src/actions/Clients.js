@@ -25,6 +25,10 @@ export const removeClient = () => ({
   type: ACTIONS.DELETE_CLIENT
 })
 
+export const resetClient = () =>({
+  type: ACTIONS.RESET_CLIENT
+})
+
 export const fetchingClients = () => async (dispatch) => {
   const clients = await getClients()
   dispatch(fetchClients(clients))

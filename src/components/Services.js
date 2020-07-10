@@ -61,7 +61,7 @@ class Services extends Component {
                       </button>
                       <button
                         className='btn btn-danger action-btn btn-sm'
-                        onClick={() => { if (window.confirm('¿Está seguro que desea eleminar el servicio?')) this.props.removingClient(service.id) }} >
+                        onClick={() => { if (window.confirm('¿Está seguro que desea eleminar el servicio?')) this.props.removingService(service.id) }} >
                         Eliminar
                       </button>
                     </>

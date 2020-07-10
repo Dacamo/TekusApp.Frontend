@@ -43,7 +43,7 @@ export const updatingService = (service) => async () => {
 export const creatingService = (service) => async (dispatch) => {
   await postService(service)
   dispatch(createService)
-  history.push(`/Services`)
+  history.push(`/Servicios/${service.clientId}`)
 }
 
 export const removingService = (id) => async (dispatch) => {

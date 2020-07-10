@@ -17,6 +17,8 @@ const client = (state = defaultState, action) =>{
       return {...state}
     case ACTIONS.FETCH_CLIENT_BY_ID:
       return {...state, clientData: action.payload}
+    case ACTIONS.RESET_CLIENT:
+      return {...state, clientData: undefined}
     default: 
       return state; 
   }

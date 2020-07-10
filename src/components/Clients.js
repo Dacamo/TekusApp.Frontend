@@ -56,7 +56,11 @@ class Clients extends Component {
                     <>
                       <button
                         className='btn btn-primary action-btn btn-sm'
-                        onClick={() => history.push(`/Servicios/${client.id}`)} >
+                        onClick={() => 
+                        {
+                          history.push(`/Servicios/${client.id}`)
+                          this.props.fetchingClientById(client.id)
+                        }} >
                         Servicios
                 </button>
                       <button

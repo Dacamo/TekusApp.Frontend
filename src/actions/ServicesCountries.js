@@ -26,7 +26,12 @@ export const fetchingServicesCountries = (serviceId) => async (dispatch) => {
 }
 
 export const creatingServiceCountry = (serviceCountry) => async (dispatch) => {
-  await postServiceCountry(serviceCountry)
+  try{
+    await postServiceCountry(serviceCountry)
+  } catch (err){
+    alert(err.response.data)
+  }
+  
   dispatch(createServiceCountry())
 }
 

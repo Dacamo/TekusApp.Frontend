@@ -66,7 +66,7 @@ class CreateService extends React.Component {
 const validate = (formValues) => {
   const errors = {};
   if (!formValues.name) {errors.name = "Este capo no debe estar vacío";}
-  if (!formValues.hourValor) {errors.email = "Este capo no debe estar vacío";}
+  if (!formValues.hourValue) {errors.hourValue = "Este capo no debe estar vacío";}
 
   return errors;
 }

@@ -3,7 +3,8 @@ import {ACTIONS} from '../actions/types';
 const defaultState = {
   clientsData : [],
   clientData: undefined,
-  quantityClients: undefined
+  quantityClients: undefined,
+  actualPage: undefined
 }
 
 const client = (state = defaultState, action) =>{
@@ -13,7 +14,7 @@ const client = (state = defaultState, action) =>{
     case ACTIONS.CREATE_CLIENT:
       return {...state}
     case ACTIONS.DELETE_CLIENT:
-      return {...state, clientsData: state.clientsData.filter(({id}) => id !== action.payload)}
+      return {...state}
     case ACTIONS.UPDATE_CLIENT:
       return {...state}
     case ACTIONS.FETCH_CLIENT_BY_ID:
@@ -22,6 +23,8 @@ const client = (state = defaultState, action) =>{
       return {...state, clientData: undefined}
     case ACTIONS.COUNT_CLIENTS:
       return {...state, quantityClients: action.payload}
+    case ACTIONS.FETCH_CLIENTS_BY_RANGE:
+      return {...state, clientsData: action.payload}
     default: 
       return state; 
   }

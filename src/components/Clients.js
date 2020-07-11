@@ -6,15 +6,31 @@ import ButtonRedirect from './ButtonRedirect';
 class Clients extends Component {
 
   componentDidMount() {
-    this.props.fetchingClients()
-  }
-
-  componentDidUpdate() {
-    this.props.fetchingClients()
+    //this.props.fetchingClients()
+    this.props.fetchingClientsByRange(1)
+    this.props.countingClients()
   }
 
   render() {
+    
+    let renderPageNumbers;
 
+    const pageNumbers = [];
+    if (this.props.quantity > 0) {
+      for (let i = 1; i <= Math.ceil(this.props.quantity / 4); i++) {
+        pageNumbers.push(i);
+      }
+
+      renderPageNumbers = pageNumbers.map(number => {
+        let classes = this.props.actualPage === number ? "active" : '';
+     
+        return (
+          <span key={number} className={classes} onClick={() => this.props.fetchingClientsByRange(number)}>{number}</span>
+        );
+      
+      });
+
+    }
     if (this.props.clientsData.length <= 0) {
       return (
         <div>
@@ -27,7 +43,6 @@ class Clients extends Component {
         </div>
       );
     }
-
 
     return (
       <>
@@ -83,6 +98,11 @@ class Clients extends Component {
             </tbody>
           </table>
         </div>
+        <div className="pagination">
+          <span onClick={() => this.props.fetchingClientsByRange(1)}>&laquo;</span>
+          {renderPageNumbers}
+        </div>
+        <br/>
       </>
     )
   }

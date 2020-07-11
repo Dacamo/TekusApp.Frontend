@@ -9,11 +9,7 @@ class Services extends Component {
     this.props.fetchingServicesByClientID(this.props.match.params.clientId)
   }
 
-  componentDidUpdate(){
-    
-  }
-
-
+  
   render() {
 
     if (this.props.servicesData.length <= 0) {
@@ -29,6 +25,7 @@ class Services extends Component {
       );
     }
 
+    
 
     return (
       <>

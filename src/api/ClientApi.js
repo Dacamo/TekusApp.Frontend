@@ -32,3 +32,7 @@ export const getCountClients = async () =>{
   return respose.data
 }
 
+export const getByRange = async (page) =>{
+  const response = await axios.get(`${CLIENTS_API_URL}/pagination/${page-1}`)
+  return response.data
+}

@@ -1,5 +1,5 @@
 import {ACTIONS} from "./types";
-import { getClients, getClientById, postClient, putClient, deleteClient, getCountClients } from "../api/ClientApi";
+import { getClients, getClientById, postClient, putClient, deleteClient, getCountClients, getByRange } from "../api/ClientApi";
 import history from '../history'
 
 
@@ -21,8 +21,9 @@ export const createClient = () => ({
   type: ACTIONS.CREATE_CLIENT
 })
 
-export const removeClient = () => ({
-  type: ACTIONS.DELETE_CLIENT
+export const removeClient = (id) => ({
+  type: ACTIONS.DELETE_CLIENT,
+  payload: id
 })
 
 export const resetClient = () =>({
@@ -32,6 +33,16 @@ export const resetClient = () =>({
 export const countClients =(quantity) =>({
   type: ACTIONS.COUNT_CLIENTS,
   payload: quantity
+})
+
+export const fetchClientsByRange = (clients) => ({
+  type: ACTIONS.FETCH_CLIENTS_BY_RANGE,
+  payload: clients
+})
+
+export const setActualPage = (number) => ({
+  type: ACTIONS.SET_ACTUAL_PAGE,
+  payload: number
 })
 
 export const fetchingClients = () => async (dispatch) => {
@@ -58,11 +69,18 @@ export const creatingClient = (client) => async (dispatch) => {
 export const removingClient = (id) => async (dispatch) => {
   await deleteClient(id)
   dispatch(removeClient(id))
+  dispatch(fetchingClientsByRange(1))
 }
 
 export const countingClients = () => async (dispatch) => {
   const quantity = await getCountClients()
   dispatch(countClients(quantity))
+}
+
+export const fetchingClientsByRange = (page) => async (dispatch) => {
+  const clients = await getByRange(page);
+  dispatch(fetchClientsByRange(clients))
+  dispatch(setActualPage(page))
 }
 
 

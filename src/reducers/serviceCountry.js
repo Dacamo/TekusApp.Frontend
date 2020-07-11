@@ -1,7 +1,8 @@
 import {ACTIONS} from '../actions/types';
 
 const defaultState = {
-  servicesCountriesData : []
+  servicesCountriesData : [],
+  servicesPerCountry: []
 }
 
 const serviceCountry = (state = defaultState, action) =>{
@@ -12,6 +13,8 @@ const serviceCountry = (state = defaultState, action) =>{
       return { ...state}
     case ACTIONS.DELETE_SERVICE_COUNTRY:
       return {...state, servicesCountriesData: state.servicesCountriesData.filter(({id}) => id !== action.payload)}
+    case ACTIONS.COUNT_SERVICES_PER_COUNTRY:
+      return {...state, servicesPerCountry: action.payload}
     default: 
       return state; 
   }

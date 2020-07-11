@@ -27,3 +27,8 @@ export const deleteClient = async (id) => {
   await axios.delete(`${CLIENTS_API_URL}/${id}`)
 }
 
+export const getCountClients = async () =>{
+  const respose = await axios.get(`${CLIENTS_API_URL}/Count`)
+  return respose.data
+}
+

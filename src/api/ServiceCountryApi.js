@@ -17,3 +17,10 @@ export const postServiceCountry = async (serviceCountry) => {
 export const deleteServiceCountry = async (id) => {
   await axios.delete(`${SERVICE_COUNTRY_API_URL}/${id}`)
 }
+
+export const servicesPerCountry = async () => {
+  const response = await axios.get(`${SERVICE_COUNTRY_API_URL}/Count`)
+  console.log(response.data)
+  return response.data
+  
+}

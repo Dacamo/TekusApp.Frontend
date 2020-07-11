@@ -5,7 +5,7 @@ import ServicesPage from '../pages/ServicesPage';
 import CreateServicePage from '../pages/CreateServicePage';
 import CreateClientPage from '../pages/CreateClientPage';
 import UpdateClientPage from '../pages/UpdateClientPage';
-import ResumePage from '../pages/ResumePage';
+import SummaryPage from '../pages/SummaryPage';
 import CreateServiceCountryPage from '../pages/CreateServiceCountryPage';
 import UpdateServicePage from '../pages/UpdateServicePage';
 import Navigation from './Navigation';
@@ -25,7 +25,7 @@ const Root = () => {
             <Route path="/Servicios/Crear" exact component={CreateServicePage} />
             <Route path="/Servicios/:clientId" exact component={ServicesPage} />
             <Route path="/Servicios/Actualizar/:Id" exact component={UpdateServicePage} />
-            <Route path="/Resumen" exact component={ResumePage} />
+            <Route path="/Resumen" exact component={SummaryPage} />
             <Route path="/Countries/:serviceId" exact component={CreateServiceCountryPage} />
           </Switch>
       </div>

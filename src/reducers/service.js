@@ -2,7 +2,8 @@ import {ACTIONS} from '../actions/types';
 
 const defaultState = {
   servicesData : [],
-  serviceData: undefined
+  serviceData: undefined,
+  quantityServices: undefined
 }
 
 const service = (state = defaultState, action) =>{
@@ -19,6 +20,8 @@ const service = (state = defaultState, action) =>{
       return {...state, serviceData: action.payload}
     case ACTIONS.FETCH_SERVICES_BY_CLIENT_ID:
       return {...state, servicesData: action.payload}
+    case ACTIONS.COUNT_SERVICES:
+      return {...state, quantityServices: action.payload}
     default: 
       return state; 
   }

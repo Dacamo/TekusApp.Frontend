@@ -32,3 +32,8 @@ export const getServicesByClientId = async (clientId) =>{
   return response.data
 }
 
+export const getCountServices = async () =>{
+  const respose = await axios.get(`${SERVICE_API_URL}/Count`)
+  return respose.data
+}
+

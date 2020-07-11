@@ -2,7 +2,8 @@ import {ACTIONS} from '../actions/types';
 
 const defaultState = {
   clientsData : [],
-  clientData: undefined
+  clientData: undefined,
+  quantityClients: undefined
 }
 
 const client = (state = defaultState, action) =>{
@@ -19,6 +20,8 @@ const client = (state = defaultState, action) =>{
       return {...state, clientData: action.payload}
     case ACTIONS.RESET_CLIENT:
       return {...state, clientData: undefined}
+    case ACTIONS.COUNT_CLIENTS:
+      return {...state, quantityClients: action.payload}
     default: 
       return state; 
   }

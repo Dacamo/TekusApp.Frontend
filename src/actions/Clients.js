@@ -1,5 +1,5 @@
 import {ACTIONS} from "./types";
-import { getClients, getClientById, postClient, putClient, deleteClient } from "../api/ClientApi";
+import { getClients, getClientById, postClient, putClient, deleteClient, getCountClients } from "../api/ClientApi";
 import history from '../history'
 
 
@@ -29,6 +29,11 @@ export const resetClient = () =>({
   type: ACTIONS.RESET_CLIENT
 })
 
+export const countClients =(quantity) =>({
+  type: ACTIONS.COUNT_CLIENTS,
+  payload: quantity
+})
+
 export const fetchingClients = () => async (dispatch) => {
   const clients = await getClients()
   dispatch(fetchClients(clients))
@@ -53,6 +58,11 @@ export const creatingClient = (client) => async (dispatch) => {
 export const removingClient = (id) => async (dispatch) => {
   await deleteClient(id)
   dispatch(removeClient(id))
+}
+
+export const countingClients = () => async (dispatch) => {
+  const quantity = await getCountClients()
+  dispatch(countClients(quantity))
 }
 
 
